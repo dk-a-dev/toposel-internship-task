@@ -48,3 +48,23 @@ export const login = async (req, res) => {
         res.status(500).json({message:error.message});
     }
 }
+
+export const searchUsers = async (req, res) => {
+    try {
+      const { query } = req.query;
+      if (!query) {
+        return res.status(400).json({ error: 'Search query is required' });
+      }
+  
+      const users = await User.find({
+        $or: [
+          { username: new RegExp(query, 'i') },
+          { email: new RegExp(query, 'i') }
+        ]
+      }).select('-password'); // Exclude password from results
+  
+      res.json(users);
+    } catch (error) {
+      res.status(500).json({ error: 'Server error' });
+    }
+  };

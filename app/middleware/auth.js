@@ -2,7 +2,7 @@ import pkg from 'jsonwebtoken';
 const { verify } = pkg;
 const JWT_SECRET=process.env.JWT_SECRET
 
-const Auth=async(req,res,next)=>{
+const auth=async(req,res,next)=>{
     try{
         const token=req.header('Authorization').replace('Bearer ','')
         if(!token){
@@ -18,4 +18,4 @@ const Auth=async(req,res,next)=>{
     }
 };
 
-export default Auth;
+export default auth;
