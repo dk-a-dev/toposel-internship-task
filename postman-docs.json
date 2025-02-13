@@ -1,0 +1,90 @@
+{
+  "info": {
+    "name": "toposel-internship-task-doc",
+    "description": "API collection for user registration, authentication and search functionality",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "User Registration",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/users/register",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "users", "register"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"johndoe\",\n    \"password\": \"securepass123\",\n    \"email\": \"john@example.com\",\n    \"fullName\": \"John Doe\",\n    \"gender\": \"male\",\n    \"dateOfBirth\": \"1990-01-01\",\n    \"country\": \"USA\"\n}"
+        },
+        "description": "Register a new user with required information"
+      }
+    },
+    {
+      "name": "User Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/users/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "users", "login"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"johndoe\",\n    \"password\": \"securepass123\"\n}"
+        },
+        "description": "Authenticate user and receive JWT token"
+      }
+    },
+    {
+      "name": "Search Users",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}",
+            "description": "JWT token received after login"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/users/search?query=john",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "users", "search"],
+          "query": [
+            {
+              "key": "query",
+              "value": "john"
+            }
+          ]
+        },
+        "description": "Search users by username or email (requires authentication)"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "jwt_token",
+      "value": "your_jwt_token_here"
+    }
+  ]
+}
