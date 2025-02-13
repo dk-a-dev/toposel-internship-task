@@ -2,6 +2,9 @@
 
 API built with Express.js and MongoDB for user management, featuring secure authentication and search functionality.
 
+## Showcase
+[Drive Link for showcase](https://drive.google.com/file/d/1TOXjRio7DJOT0SkXo-lhM39DyVewRtYs/view?usp=sharing)
+
 ## Features
 
 - User registration with data validation
