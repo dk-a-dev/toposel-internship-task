@@ -1,4 +1,5 @@
-import { hash, compare } from "bcryptjs";
+import pkg from 'bcryptjs';
+const { hash, compare } = pkg;
 
 export const hashPassword = async (password) => {
     return await hash(password, 8);

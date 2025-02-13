@@ -1,7 +1,8 @@
 import User from '../../models/userModel.js';
 import jwt from 'jsonwebtoken';
 import { validationResult } from 'express-validator';
-
+import dotenv from 'dotenv';
+dotenv.config();
 const JWT_SECRET=process.env.JWT_SECRET;
 
 export const register = async (req, res) => {
