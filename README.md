@@ -27,8 +27,8 @@ API built with Express.js and MongoDB for user management, featuring secure auth
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/user-management-api.git
-cd user-management-api
+git clone https://github.com/dk-a-dev/toposel-internship-task.git
+cd toposel-internship-task
 ```
 
 2. Install dependencies:
