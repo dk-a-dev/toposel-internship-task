@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-const { Schema } = mongoose;
+import mongoose from "mongoose";
+import { passwordMiddleware } from "../app/utils/authUtils.js";
 
-export const UserSchema=new Schema({
+export const UserSchema = new mongoose.Schema({
     username:{
         type:String,
         required:true,
@@ -33,9 +33,11 @@ export const UserSchema=new Schema({
         type:String,
         required:true
     },
-},{
-    timestamps:true
+}, {
+    timestamps: true
 });
 
+passwordMiddleware(UserSchema);
+
 const User = mongoose.model("User", UserSchema);
-module.exports = User;
+export default User;

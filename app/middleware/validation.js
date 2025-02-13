@@ -1,6 +1,6 @@
 import { body } from "express-validator";
 
-const registerValidation = [
+export const registerValidation = [
   body("username")
     .trim()
     .isLength({ min: 3 })
@@ -17,12 +17,7 @@ const registerValidation = [
   body("country").trim().notEmpty().withMessage("Country is required"),
 ];
 
-const loginValidation = [
+export const loginValidation = [
   body("username").trim().notEmpty().withMessage("Username is required"),
   body("password").notEmpty().withMessage("Password is required"),
 ];
-
-export default {
-  registerValidation,
-  loginValidation,
-};
